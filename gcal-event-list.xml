@@ -2,6 +2,8 @@
 <Module>
   <!--http://gcal-event-list.googlecode.com/svn/trunk/gcal-event-list.xml-->
   <ModulePrefs title="gcal-event-list"/>
+  <UserPref name="calendarid" display_name="Google Calendar Id" required="true" />
+  <UserPref name="apikey" display_name="Google Calendar API Key" required="true"/>
   <Content type="html">
     <![CDATA[
     <div id="content_div"></div>
@@ -11,7 +13,11 @@
       var params = {};
       params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
       // This URL returns a JSON-encoded string that represents a JavaScript object
-      var url = "https://www.googleapis.com/calendar/v3/calendars/aedlnm06b87e5h7egpraneu598%40group.calendar.google.com/events?key=AIzaSyAYBls0fRU7JyF0sqO4xflapyAb8C49YkI";
+      
+      var prefs = new gadgets.Prefs();
+      var calendarid = prefs.getString("calendarid");
+      var apikey = prefs.getString("apikey");
+      var url = "https://www.googleapis.com/calendar/v3/calendars/" + calendarid + "/events?key=" + apikey ;
       gadgets.io.makeRequest(url, response, params);
     };
 
