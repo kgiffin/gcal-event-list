@@ -1,5 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Module>
+  <!--http://gcal-event-list.googlecode.com/svn/trunk/gcal-event-list.xml-->
   <ModulePrefs title="gcal-event-list"/>
   <Content type="html">
     <![CDATA[
@@ -10,7 +11,7 @@
       var params = {};
       params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
       // This URL returns a JSON-encoded string that represents a JavaScript object
-      var url = "http://gadget-doc-examples.googlecode.com/svn/trunk/opensocial-gadgets/json-data.txt";
+      var url = "https://www.googleapis.com/calendar/v3/calendars/aedlnm06b87e5h7egpraneu598%40group.calendar.google.com/events";
       gadgets.io.makeRequest(url, response, params);
     };
 
@@ -27,7 +28,7 @@
           html += "<br /><ul>";
           for (var i = 0; i < value.length ; i++)
           {
-            html += "<li>"+ jsondata.Hobbies[i] + "</li>";
+            html += "<li>"+ jsondata.Summary[i] + "</li>";
           }
           html+= "</ul>";
         }  
