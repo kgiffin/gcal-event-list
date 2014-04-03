@@ -38,10 +38,8 @@
         {
           html += "<br /><ul>";
           for (var i = 0; i < value.length ; i++)
-          {
-            var startdate = new date(jsondata.items[i].start.datetime);
-            
-            html += "<a target=\"_top\" href=\"" + jsondata.items[i].htmlLink + "\"><li>"+ startdate.toLocaleDateString() + " - " +  jsondata.items[i].summary + "</li></a>";
+          {            
+            html += "<a target=\"_top\" href=\"" + jsondata.items[i].htmlLink + "\"><li>"+ jsondata.items[i].start.datetime + " - " +  jsondata.items[i].summary + "</li></a>";
           }
           html+= "</ul>";
         }  
