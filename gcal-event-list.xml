@@ -39,7 +39,8 @@
           html += "<br /><ul>";
           for (var i = 0; i < value.length ; i++)
           {
-            html += "<a target=\"_top\" href=\"" + jsondata.items[i].htmlLink + "\"><li>"+ jsondata.items[i].summary + "</li></a>";
+            var startdate = new date(jsondata.items[i].start.datetime)
+            html += "<a target=\"_top\" href=\"" + jsondata.items[i].htmlLink + "\"><li>"+ startdate.toLocaleDateString() + " - " +  jsondata.items[i].summary + "</li></a>";
           }
           html+= "</ul>";
         }  
