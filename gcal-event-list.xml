@@ -31,7 +31,7 @@
       // Process returned JS object as an associative array
         var value = jsondata["summary"];
         html += value + "<br />";
-        
+        html += value + "<div>This gadget is a work in progress : last updated on Apr 2, 2014</div>";
         value = jsondata["items"]
         // Items is an array, render its contents as a bulleted list
         if (value instanceof Array)
