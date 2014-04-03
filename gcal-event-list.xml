@@ -4,6 +4,9 @@
   <ModulePrefs title="gcal-event-list"/>
   <UserPref name="calendarid" display_name="Google Calendar Id" required="true" />
   <UserPref name="apikey" display_name="Google Calendar API Key" required="true"/>
+  <UserPref name="cssclass1" display_name="css class associated with ul tag" required="true" />
+  <UserPref name="cssclass2" display_name="css class associated with li tag (date)" required="true" />
+  <UserPref name="cssclass3" display_name="css class associated with li tag (description)" required="true" />
   <Content type="html">
     <![CDATA[
     <div id="content_div"></div>
@@ -21,8 +24,9 @@
       gadgets.io.makeRequest(url, response, params);
     };
 
+
     function response(obj) { 
-      var jsondata = obj.data;
+      var jsondata = obj.data;   
       var html = "";
       // Process returned JS object as an associative array
         var value = jsondata["summary"];
@@ -35,7 +39,7 @@
           html += "<br /><ul>";
           for (var i = 0; i < value.length ; i++)
           {
-            html += "<li>"+ jsondata.items[i].summary + "</li>";
+            html += "<a href=\"" + jsondata.items[i].htmlLink + "\"><li>"+ jsondata.items[i].summary + "</li></a>";
           }
           html+= "</ul>";
         }  
