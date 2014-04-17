@@ -39,7 +39,7 @@
           html += "<br /><ul>";
           for (var i = 0; i < value.length ; i++)
           {        
-            html += "<a target=\"_top\" href=\"" + jsondata.items[i].htmlLink + "\"><li>"+ $.datepicker.formatDate('yy-mm-dd', jsondata.items[i].start.dateTime) + " - " +  jsondata.items[i].summary + "</li></a>";
+            html += "<a target=\"_top\" href=\"" + jsondata.items[i].htmlLink + "\"><li>"+ jsondata.items[i].start.dateTime + " - " +  jsondata.items[i].summary + "</li></a>";
           }
           html+= "</ul>";
         }  
