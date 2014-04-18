@@ -34,7 +34,6 @@
       // Process returned JS object as an associative array
         var value = jsondata["summary"];
         html += value + "<br />";
-        html += value + "<div>This gadget is a work in progress : last updated on Apr 2, 2014</div>";
         value = jsondata["items"]
         // Items is an array, render its contents as a bulleted list
         if (value instanceof Array)
@@ -51,7 +50,7 @@
             var curr_year = eventDate.getFullYear();
 
 	    html += "<a target=\"_top\" href=\"" + jsondata.items[i].htmlLink + "\"><li>"+ 
-			d_names[curr_day] + " " + curr_date + m_names[curr_month] + " " + curr_year + " - " +  jsondata.items[i].summary + "</li></a>";
+			d_names[curr_day] + ", " + curr_date + " " + m_names[curr_month] + " " + curr_year + " - " +  jsondata.items[i].summary + "</li></a>";
           }
           html+= "</ul>";
         }  
