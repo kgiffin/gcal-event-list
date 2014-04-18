@@ -25,7 +25,10 @@
     };
 
 
-    function response(obj) {    
+    function response(obj) { 
+      var d_names = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
+      var m_names = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+
       var jsondata = obj.data;   
       var html = "";
       // Process returned JS object as an associative array
@@ -40,7 +43,15 @@
           for (var i = 0; i < value.length ; i++)
           {   
 	    var eventDate = new Date(jsondata.items[i].start.dateTime);    
-	    html += "<a target=\"_top\" href=\"" + jsondata.items[i].htmlLink + "\"><li>"+ eventDate.toLocaleDateString() + " - " +  jsondata.items[i].summary + "</li></a>";
+
+	    var curr_day = eventDate.getDay();
+            var curr_date = eventDate.getDate();
+
+            var curr_month = eventDate.getMonth();
+            var curr_year = eventDate.getFullYear();
+
+	    html += "<a target=\"_top\" href=\"" + jsondata.items[i].htmlLink + "\"><li>"+ 
+			d_names[curr_day] + " " + curr_date + m_names[curr_month] + " " + curr_year + " - " +  jsondata.items[i].summary + "</li></a>";
           }
           html+= "</ul>";
         }  
