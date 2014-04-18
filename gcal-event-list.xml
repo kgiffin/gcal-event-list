@@ -39,8 +39,7 @@
           html += "<br /><ul>";
           for (var i = 0; i < value.length ; i++)
           {       
-	    alert ("<a target=\"_top\" href=\"" + jsondata.items[i].htmlLink + "\"><li>"+ jsondata.items[i].start.dateTime + " - " +  jsondata.items[i].summary + "</li></a>");     
-            html += "<a target=\"_top\" href=\"" + jsondata.items[i].htmlLink + "\"><li>"+ jsondata.items[i].start.dateTime + " - " +  jsondata.items[i].summary + "</li></a>";
+	    html += "<a target=\"_top\" href=\"" + jsondata.items[i].htmlLink + "\"><li>"+ jsondata.items[i].start.dateTime.toLocaleDateString() + " - " +  jsondata.items[i].summary + "</li></a>";
           }
           html+= "</ul>";
         }  
