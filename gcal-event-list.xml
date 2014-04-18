@@ -50,7 +50,7 @@
             var curr_year = eventDate.getFullYear();
 
 	    html += "<a target=\"_top\" href=\"" + jsondata.items[i].htmlLink + "\"><li>"+ 
-			d_names[curr_day] + ", " + curr_date + " " + m_names[curr_month] + " " + curr_year + " - " +  jsondata.items[i].summary + " " + sondata.items[i].description + "</li></a>";
+			d_names[curr_day] + ", " + curr_date + " " + m_names[curr_month] + " " + curr_year + " - " +  jsondata.items[i].summary + " " + jsondata.items[i].description + "</li></a>";
           }
           html+= "</ul>";
         }  
