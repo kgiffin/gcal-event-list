@@ -69,7 +69,6 @@ function response(obj) {
             html += "</li>";
         }
         html+= "</ul></div>";
-        alert(html);
     }  
   
 
