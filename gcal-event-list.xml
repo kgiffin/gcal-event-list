@@ -49,8 +49,21 @@
             var curr_month = eventDate.getMonth();
             var curr_year = eventDate.getFullYear();
 
-	    html += "<a target=\"_top\" href=\"" + jsondata.items[i].htmlLink + "\"><li>"+ 
-			d_names[curr_day] + ", " + curr_date + " " + m_names[curr_month] + " " + curr_year + " - " +  jsondata.items[i].summary + " " + jsondata.items[i].description + "</li></a>";
+	    if (typeof jsondata.items[i].htmlLink != "undefined") {
+		html += "<a class=\"sites-announcement-embed-post-title\" target=\"_top\" href=\"" + jsondata.items[i].htmlLink + ">" + >
+            }
+            html += "<li>"+ d_names[curr_day] + ", " + curr_date + " " + m_names[curr_month] + " " + curr_year + " - " 
+
+	    if (typeof jsondata.items[i].summary != "undefined") {
+                html += jsondata.items[i].summary
+            }
+
+            html += "</a>"
+
+            if (typeof jsondata.items[i].description != "undefined") {
+                html += jsondata.items[i].description
+            } 
+	    html += "</li>";
           }
           html+= "</ul>";
         }  
