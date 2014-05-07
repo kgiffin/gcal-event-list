@@ -55,13 +55,13 @@
             html += "<li>"+ d_names[curr_day] + ", " + curr_date + " " + m_names[curr_month] + " " + curr_year + " - " 
 
 	    if (typeof jsondata.items[i].summary != "undefined") {
-                html += jsondata.items[i].summary
+                html += jsondata.items[i].summary;
             }
 
-            html += "</a>"
+            html += "</a>";
 
             if (typeof jsondata.items[i].description != "undefined") {
-                html += jsondata.items[i].description
+                html += jsondata.items[i].description;
             } 
 	    html += "</li>";
           }
