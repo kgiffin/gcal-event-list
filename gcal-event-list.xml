@@ -53,7 +53,7 @@ function response(obj) {
             }
   
             html += "<li>" + d_names[curr_day] + ", " + curr_date + " " + m_names[curr_month] + " " + curr_year + " - ";
-            alert("3::" + html);
+
             if (typeof jsondata.items[i].summary != "undefined") {
                 html += jsondata.items[i].summary;
             }
