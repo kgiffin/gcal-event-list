@@ -49,8 +49,8 @@ function response(obj) {
             var curr_year = eventDate.getFullYear();
    
             if (typeof jsondata.items[i].htmlLink != "undefined") {
-                html += "<h4><span><a class=\"sites-announcement-embed-post-title\" target=\"_top\" href=\"" + jsondata.items[i].htmlLink + "\">";
-            }
+                html += "<span><a class=\"sites-announcement-embed-post-title\" target=\"_top\" href=\"" + jsondata.items[i].htmlLink + "\">";
+            } 
   
             html += "<li>" + d_names[curr_day] + ", " + curr_date + " " + m_names[curr_month] + " " + curr_year + " - ";
 
@@ -59,7 +59,7 @@ function response(obj) {
             }
      
 
-            html += "</a></span></h4>";
+            html += "</a></span>";
     
 
             if (typeof jsondata.items[i].description != "undefined") {
