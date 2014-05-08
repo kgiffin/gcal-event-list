@@ -4,6 +4,7 @@
   <ModulePrefs title="gcal-event-list"/>
   <UserPref name="calendarid" display_name="Google Calendar Id" required="true" />
   <UserPref name="apikey" display_name="Google Calendar API Key" required="true"/>
+  <UserPref name="cssurl" display_name="css url" required="true" />
   <UserPref name="cssclass1" display_name="css class associated with ul tag" required="true" />
   <UserPref name="cssclass2" display_name="css class associated with li tag (date)" required="true" />
   <UserPref name="cssclass3" display_name="css class associated with li tag (description)" required="true" />
@@ -27,7 +28,8 @@ function makeJSONRequest() {
 function response(obj) { 
     var d_names = new Array("Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday");
     var m_names = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
-
+    var prefs = new gadgets.Prefs();
+    var cssurl = prefs.getString("cssurl");
     var jsondata = obj.data;   
     var html = "";
     // Process returned JS object as an associative array
