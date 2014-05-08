@@ -39,7 +39,7 @@ function response(obj) {
     // Items is an array, render its contents as a bulleted list
     if (value instanceof Array)
     {
-        html += "<div class=\"announcement\"><ul>";
+        html += "<div id=\"navcontainer\"><ul>";
         for (var i = 0; i < value.length ; i++)
         {   
             var eventDate = new Date(jsondata.items[i].start.dateTime);    
