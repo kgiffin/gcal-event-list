@@ -31,10 +31,10 @@ function response(obj) {
 
     var prefs = new gadgets.Prefs();
     var cssurl = prefs.getString("cssurl");
-    alert(cssurl);
     
     var jsondata = obj.data;   
-    var html = "";
+    var html = "<link rel=\"stylesheet\" type=\"text/css\" href=\"" + cssurl + "\">";
+    alert(html);  
     // Process returned JS object as an associative array
     var value = jsondata["summary"];
     html += value + "<br />";
