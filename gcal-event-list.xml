@@ -19,7 +19,7 @@ function makeJSONRequest() {
       
     var prefs = new gadgets.Prefs();
     var calendarid = prefs.getString("calendarid");
-    var apikey = prefs.getString("apikey"); 
+    var apikey = prefs.getString("apikey");
     var url = "https://www.googleapis.com/calendar/v3/calendars/" + calendarid + "/events?key=" + apikey + "&singleEvents=true&orderBy=starttime"  ;
     gadgets.io.makeRequest(url, response, params);
 };
@@ -30,16 +30,15 @@ function response(obj) {
     var m_names = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
 
     var jsondata = obj.data;   
-    var html = "<link rel=\"stylesheet\" type=\"text/css\" href=\"http://gcal-event-list.googlecode.com/svn/trunk/gcal-event-list.css\"">";
-    alert(html);
+    var html = "";
     // Process returned JS object as an associative array
     var value = jsondata["summary"];
     html += value + "<br />";
-    value = jsondata["items"] 
+    value = jsondata["items"]
     // Items is an array, render its contents as a bulleted list
     if (value instanceof Array)
     {
-        html += "<div id=\"navcontainer\"><ul>";
+        html += "<div class=\"announcement\"><ul>";
         for (var i = 0; i < value.length ; i++)
         {   
             var eventDate = new Date(jsondata.items[i].start.dateTime);    
