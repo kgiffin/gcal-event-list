@@ -6,18 +6,15 @@
  
 li {
   font: 150 15px/1.5 Helvetica, Verdana, sans-serif;
-  border-bottom: 1px solid #ccc;
+  border-bottom: none;
 }
  
 li:last-child {
   border: none;
 }
  
-li a {
-  text-decoration: none;
-  color: #000;
-  display: block;
-
- 
+li div {
+  font: 200 12px/1 italic Helvetica, Verdana, sans-serif ;
+  border-bottom: 1px solid #ccc;
 }
  
