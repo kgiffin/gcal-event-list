@@ -68,7 +68,7 @@ function response(obj) {
     
 
             if (typeof jsondata.items[i].description != "undefined") {
-                html += "<div> + jsondata.items[i].description + "</div>";
+                html += "<div>" + jsondata.items[i].description + "</div>";
             }
 
             html += "</li>";
