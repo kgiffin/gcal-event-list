@@ -34,7 +34,7 @@ function response(obj) {
     
     var jsondata = obj.data;   
     var html = "<link rel=\"stylesheet\" type=\"text/css\" href=\"" + cssurl + "\">";
-    alert(html);  
+ 
     // Process returned JS object as an associative array
     var value = jsondata["summary"];
     html += value + "<br />";
