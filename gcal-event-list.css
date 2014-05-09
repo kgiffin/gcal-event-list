@@ -1,7 +1,13 @@
-﻿body
+﻿#navcontainer ul
 {
-
-    
+margin: 0;
+padding: 0;
+list-style-type: none;
 }
 
-#navcontainer ul { list-style-type: none; }
+#navcontainer a
+{
+display: block;
+color: #FFF;
+background-color: #036;
+}
