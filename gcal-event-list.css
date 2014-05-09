@@ -18,7 +18,7 @@ li div {
   font-style:italic;
   font-family:Arial;
   font-size:smaller;
-  text-indent:each-line;
+  text-indent:50px, each-line;
   border-bottom: 1px solid #ccc;
 }
  
