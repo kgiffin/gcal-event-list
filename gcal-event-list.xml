@@ -31,7 +31,7 @@ function response(obj) {
     var prefs = new gadgets.Prefs();
     var cssurl = prefs.getString("cssurl");
     var jsondata = obj.data;   
-    var html = "<head><link rel=\"stylesheet\" type=\"text/css\" href=\"" +  cssurl + "\""></head>";
+    var html = "<link rel=\"stylesheet\" type=\"text/css\" href=\"" +  cssurl + "\"">";
     // Process returned JS object as an associative array
     var value = jsondata["summary"];
     html += value + "<br />";
