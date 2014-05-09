@@ -1,6 +1,4 @@
-﻿div {
-  width: 200px;
-}
+﻿
  
 h2 {
   font: 400 40px/1.5 Helvetica, Verdana, sans-serif;
@@ -27,13 +25,8 @@ li a {
   text-decoration: none;
   color: #000;
   display: block;
-  width: 200px;
+
  
-  -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
-  -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
-  -o-transition: font-size 0.3s ease, background-color 0.3s ease;
-  -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
-  transition: font-size 0.3s ease, background-color 0.3s ease;
 }
  
 li a:hover {
