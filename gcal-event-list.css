@@ -20,5 +20,6 @@ li div {
   font-size:x-small;
   text-indent:50px, each-line;
   border-bottom: 1px solid #ccc;
+  border-left-width:10px;
 }
  
