@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Module>
+  <!--http://gcal-event-list.googlecode.com/svn/trunk/gcal-event-list.xml-->
+  <ModulePrefs title="gcal-event-list"/>
+  <UserPref name="calendarid" display_name="Google Calendar Id" required="true" />
+  <UserPref name="apikey" display_name="Google Calendar API Key" required="true"/>
+  <UserPref name="cssurl" display_name="css url" required="true" />
+  <UserPref name="cssclass1" display_name="css class associated with ul tag" required="true" />
+  <UserPref name="cssclass2" display_name="css class associated with li tag (date)" required="true" />
+  <UserPref name="cssclass3" display_name="css class associated with li tag (description)" required="true" />
+  <Content type="html">
+    <![CDATA[
+    <div id="content_div"></div>
+    <script type="text/javascript">
+function makeJSONRequest() {    
+    var params = {};
+    params[gadgets.io.RequestParameters.CONTENT_TYPE] = gadgets.io.ContentType.JSON;
+    // This URL returns a JSON-encoded string that represents a JavaScript object
+      
+    var prefs = new gadgets.Prefs();
+    var calendarid = prefs.getString("calendarid");
+    var apikey = prefs.getString("apikey");
+    var url = "https://www.googleapis.com/calendar/v3/calendars/" + calendarid + "/events?key=" + apikey + "&singleEvents=true&orderBy=starttime"  ;
+    gadgets.io.makeRequest(url, response, params);
+};
+
+
+function response(obj) { 
+    var d_names = new Array("Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat");
+    var m_names = new Array("January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December");
+
+    var prefs = new gadgets.Prefs();
+    var cssurl = prefs.getString("cssurl");
+    
+    var jsondata = obj.data;   
+    var html = "<link rel=\"stylesheet\" type=\"text/css\" href=\"" + cssurl + "\">";
+
+    // Process returned JS object as an associative array
+    var value = jsondata["summary"];
+    html += value + "<br />";
+    value = jsondata["items"]
+    // Items is an array, render its contents as a bulleted list
+    if (value instanceof Array)
+    {
+        html += "<div class=\"announcement\"><ul>";
+        for (var i = 0; i < value.length ; i++)
+        {   
+            var eventDate = new Date(jsondata.items[i].start.dateTime);    
+
+            var curr_day = eventDate.getDay();
+            var curr_date = eventDate.getDate();
+
+            var curr_month = eventDate.getMonth();
+            var curr_year = eventDate.getFullYear();
+   
+            if (typeof jsondata.items[i].htmlLink != "undefined") {
+                html += "<span><a class=\"sites-announcement-embed-post-title\" target=\"_top\" href=\"" + jsondata.items[i].htmlLink + "\">";
+            } 
+  
+            html += "<li>" + d_names[curr_day] + ", " + curr_date + " " + m_names[curr_month] + " " + curr_year + " - ";
+
+            if (typeof jsondata.items[i].summary != "undefined") {
+                html += jsondata.items[i].summary;
+            }
+     
+
+            html += "</a></span>";
+    
+
+            if (typeof jsondata.items[i].description != "undefined") {
+                html += "<div>" + jsondata.items[i].description + "</div>";
+            }
+
+            html += "</li>";
+        }
+        html+= "</ul></div>";
+        alert(html);
+    }  
+  
+
+                 
+    document.getElementById('content_div').innerHTML = html;
+};
+gadgets.util.registerOnLoadHandler(makeJSONRequest);
+</script>
+  ]]>
+  </Content>
+</Module>
