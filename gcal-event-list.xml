@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Module>
-  <!--http://gcal-event-list.googlecode.com/svn/trunk/gcal-event-list.xml-->
+  <!--https://github.com/kgiffin/gcal-event-list/blob/master/gcal-event-list.xml-->
+  <!--Google Gadget for displaying event list in Google Site-->
   <ModulePrefs title="gcal-event-list"/>
   <UserPref name="calendarid" display_name="Google Calendar Id" required="true" />
   <UserPref name="apikey" display_name="Google Calendar API Key" required="true"/>
